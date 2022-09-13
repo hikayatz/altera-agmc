@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "4c90552e-feb7-4211-883c-1e139a809519",
+		"name": "RentAppApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "740506"
+	},
+	"item": [
+		{
+			"name": "GET all book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book/:id",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"book",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update book by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book/:id",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"book",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0/book/:id",
+					"protocol": "https",
+					"host": [
+						"virtserver",
+						"swaggerhub",
+						"com"
+					],
+					"path": [
+						"sepulsa",
+						"RentABook-API",
+						"1.0.0",
+						"book",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
