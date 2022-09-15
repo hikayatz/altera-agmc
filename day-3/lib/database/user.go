@@ -2,6 +2,7 @@ package database
 
 import (
 	"errors"
+
 	"github.com/hikayat13/alterra-agcm/day-2/submission/request"
 
 	"github.com/hikayat13/alterra-agcm/day-2/submission/config"
@@ -86,7 +87,7 @@ func UpdateUser(ctx echo.Context, req *request.UserCreate, id int) (*transform.U
 }
 
 func DeleteUserById(ctx echo.Context, id int) error {
-	tx := config.DB.WithContext(ctx.Request().Context()).Begin()
+	tx := config.DB.Unscoped().WithContext(ctx.Request().Context()).Begin()
 	if err := tx.Session(&gorm.Session{FullSaveAssociations: true}).Delete(&models.User{}, id).Error; err != nil {
 		tx.Rollback()
 		return err
