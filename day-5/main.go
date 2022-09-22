@@ -2,21 +2,23 @@ package main
 
 import (
 	"flag"
+	"log"
 	"os"
 
-	"github.com/joho/godotenv"
-	"github.com/labstack/echo/v4"
 	"submission-5/database"
 	"submission-5/database/migration"
 	"submission-5/database/seeder"
 	"submission-5/internal/factory"
 	"submission-5/internal/http"
 	"submission-5/internal/middleware"
+
+	"github.com/joho/godotenv"
+	"github.com/labstack/echo/v4"
 )
 
 func init() {
 	if err := godotenv.Load(); err != nil {
-		panic(err)
+		log.Println(err)
 	}
 	database.GetConnection()
 }

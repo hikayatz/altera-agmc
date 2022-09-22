@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
@@ -19,21 +19,27 @@ type (
 	mysqlConfig struct {
 		dbConfig
 	}
-
 )
 
 func (conf mysqlConfig) Connect() {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+	// dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+	// 	conf.User,
+	// 	conf.Pass,
+	// 	conf.Host,
+	// 	conf.Port,
+	// 	conf.Name,
+	// )
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Asia/Jakarta",
+		conf.Host,
 		conf.User,
 		conf.Pass,
-		conf.Host,
-		conf.Port,
 		conf.Name,
+		conf.Port,
 	)
 
 	var err error
 
-	dbConn, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	dbConn, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
