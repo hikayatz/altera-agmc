@@ -4,11 +4,12 @@ import (
 	"context"
 	"strings"
 
-	"gorm.io/gorm"
 	"submission-5/internal/dto"
 	"submission-5/internal/model"
 	pkgdto "submission-5/pkg/dto"
 	"submission-5/pkg/util"
+
+	"gorm.io/gorm"
 )
 
 type User interface {
@@ -59,7 +60,7 @@ func (r *user) FindByID(ctx context.Context, id uint, usePreload bool) (model.Us
 	var user model.User
 	q := r.Db.WithContext(ctx).Model(&model.User{}).Where("id = ?", id)
 	if usePreload {
-		q = q.Preload("Division").Preload("Role")
+		q = q.Preload("Role")
 	}
 	err := q.First(&user).Error
 	return user, err
@@ -137,7 +138,6 @@ func (r *user) Edit(ctx context.Context, oldUser *model.User, updateData *dto.Up
 	if err := r.Db.
 		WithContext(ctx).
 		Save(oldUser).
-		Preload("Division").
 		Preload("Role").
 		Find(oldUser).
 		Error; err != nil {
